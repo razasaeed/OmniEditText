@@ -3,8 +3,11 @@
 
     <declare-styleable name="OmniEditText">
         <attr name="decimalPlaces" format="integer" />
-        <attr name="omniMaxValue" format="float" />
-        <attr name="omniErrorMessage" format="string" />
+        <attr name="omniMaxValue" format="integer" />
+        <attr name="omniMinValue" format="integer" />
+        <attr name="omniTextColor" format="color" />
+        <attr name="omniHintColor" format="color" />
+        <attr name="omniHintText" format="string" />
     </declare-styleable>
 
 </resources>

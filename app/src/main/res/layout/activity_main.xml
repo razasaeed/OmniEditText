@@ -12,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:inputType="numberDecimal"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:omniErrorMessage="Amount can't be greater than 50"
-        app:omniMaxValue="50" />
+        app:omniHintText="@string/hint_text"
+        app:omniTextColor="@color/black"
+        app:omniMaxValue="50"
+        app:omniMinValue="10"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
