@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="OmniEditText">
+        <attr name="decimalPlaces" format="integer" />
+        <attr name="omniMaxValue" format="float" />
+        <attr name="omniErrorMessage" format="string" />
+    </declare-styleable>
+
+</resources>
