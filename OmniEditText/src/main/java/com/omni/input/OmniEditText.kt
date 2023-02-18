@@ -7,9 +7,11 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 
 class OmniEditText @JvmOverloads constructor(
     context: Context, attrs: AttributeSet?
@@ -21,15 +23,20 @@ class OmniEditText @JvmOverloads constructor(
     private var omniHintText: String? = null
     private var omniTextColor = Int.MIN_VALUE
     private var omniHintColor = Int.MIN_VALUE
+    private var omniEnableClearButton = false
 
     var editText: EditText
     var errorTextView: TextView
+    var clInput: ConstraintLayout
+    var ivClear: ImageView
 
     init {
         LayoutInflater.from(context).inflate(R.layout.omni_edit_text_layout, this, true)
 
         editText = findViewById<EditText>(R.id.edit_text)
         errorTextView = findViewById<TextView>(R.id.tv_error)
+        clInput = findViewById<ConstraintLayout>(R.id.cl_input)
+        ivClear = findViewById<ImageView>(R.id.iv_clear)
 
         attrs?.let {
             val a = context.obtainStyledAttributes(attrs, R.styleable.OmniEditText)
@@ -38,10 +45,12 @@ class OmniEditText @JvmOverloads constructor(
             omniTextColor = a.getInt(R.styleable.OmniEditText_omniTextColor, Int.MIN_VALUE)
             omniHintColor = a.getInt(R.styleable.OmniEditText_omniHintColor, Int.MIN_VALUE)
             omniHintText = a.getString(R.styleable.OmniEditText_omniHintText)
+            omniEnableClearButton = a.getBoolean(R.styleable.OmniEditText_omniEnableClearButton, false)
             a.recycle()
         }
 
         setProperties()
+        setClickListeners()
 
         editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -50,6 +59,12 @@ class OmniEditText @JvmOverloads constructor(
 
             override fun afterTextChanged(s: Editable?) {
                 val input = s.toString().toFloatOrNull()
+                if (s.toString().isNotEmpty()) {
+                    ivClear.isVisible = omniEnableClearButton
+                } else {
+                    ivClear.isVisible = false
+                }
+
                 if (omniMaxValue > 0 && omniMinValue < 0) {
                     if (input != null && input > omniMaxValue) {
                         errorMessage = String.format(
@@ -94,10 +109,17 @@ class OmniEditText @JvmOverloads constructor(
         })
     }
 
+    private fun setClickListeners() {
+        ivClear.setOnClickListener {
+            editText.setText("")
+            ivClear.visibility = GONE
+        }
+    }
+
     private fun setProperties() {
-        editText.setBackgroundResource(R.drawable.default_background)
+        clInput.setBackgroundResource(R.drawable.default_background)
         val padding = resources.getDimensionPixelSize(R.dimen._10px)
-        editText.setPadding(padding, padding, padding, padding)
+        clInput.setPadding(padding, padding, padding, padding)
         editText.setTextColor(
             when (omniTextColor > 0) {
                 true -> omniTextColor
@@ -116,11 +138,11 @@ class OmniEditText @JvmOverloads constructor(
 
     private fun setError(errorMessage: String?) {
         errorTextView.text = errorMessage
-        editText.setBackgroundResource(R.drawable.error_background)
+        clInput.setBackgroundResource(R.drawable.error_background)
     }
 
     private fun clearError() {
         errorTextView.text = null
-        editText.setBackgroundResource(R.drawable.default_background)
+        clInput.setBackgroundResource(R.drawable.default_background)
     }
 }

@@ -8,6 +8,7 @@
         <attr name="omniTextColor" format="color" />
         <attr name="omniHintColor" format="color" />
         <attr name="omniHintText" format="string" />
+        <attr name="omniEnableClearButton" format="boolean" />
     </declare-styleable>
 
 </resources>
