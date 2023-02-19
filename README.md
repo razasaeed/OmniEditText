@@ -80,6 +80,7 @@ implementation 'com.github.razasaeed:OmniEditText:x.y.z'
  | omniEnableClearButton           | enables clear icon if not null    |  disabled by default          |
  | omniClearButtonIcon             | changes clear icon                |  default red icon             |
  
+ 
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
