@@ -49,3 +49,29 @@ implementation 'com.github.razasaeed:OmniEditText:x.y.z'
 ```
 
 # XML
+```
+<com.omni.input.OmniEditText
+        android:id="@+id/omniEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:omniHintText="@string/hint_text"
+        app:omniTextColor="@color/black"
+        app:omniMaxValue="50"
+        app:omniMinValue="10"/>
+```
+
+# Attributes
+
+ |        Attributes               |            Description            |         Default Value         |
+ | ------------------------------- | -------------------------------   | --------------------------    |
+ | omniHintText                    | sets input hint                   |  blank by default             |
+ | omniHintColor                   | set hint color of edittext        |  grey color by default        |
+ | omniTextColor                   | set text color of edittext        |  black color by default       |
+ | omniMaxValue                    | set maximum value of edittext     |  no value by default          |
+ | omniMinValue                    | set minimum value of edittext     |  no value by default          |
+ | omniEnableClearButton           | enables clear icon if not null    |  disabled by default          |
+ | omniClearButtonIcon             | changes clear icon                |  default red icon             |
