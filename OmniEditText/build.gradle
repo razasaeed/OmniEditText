@@ -1,7 +1,11 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
+
+def artifactId = 'OmniEditText'
+def groupId = 'com.omni.input'
 
 android {
     namespace 'com.omni.input'
@@ -41,4 +45,22 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            library(MavenPublication) {
+                setGroupId groupId
+                setArtifactId artifactId
+                version android.defaultConfig.versionName
+
+                artifact bundleReleaseAar
+
+                println "publishing: " + groupId
+                println "publishing: " + artifactId
+                println "publishing: " + bundleReleaseAar
+            }
+        }
+    }
 }
