@@ -2,4 +2,5 @@
 <resources>
     <string name="max_error_message">Amount can\'t be greater than %1$d</string>
     <string name="min_error_message">Amount can\'t be less than %1$d</string>
+    <string name="clear">clear</string>
 </resources>
