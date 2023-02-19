@@ -3,6 +3,7 @@ package com.omni.input
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.util.Log
@@ -26,6 +27,7 @@ class OmniEditText @JvmOverloads constructor(
     private var omniHintColor = Int.MIN_VALUE
     private var omniEnableClearButton = false
     private var omniClearButtonIcon: Drawable? = null
+    private var omniInputType: Int? = null
 
     var editText: EditText
     var errorTextView: TextView
@@ -49,6 +51,7 @@ class OmniEditText @JvmOverloads constructor(
             omniHintText = a.getString(R.styleable.OmniEditText_omniHintText)
             omniEnableClearButton = a.getBoolean(R.styleable.OmniEditText_omniEnableClearButton, false)
             omniClearButtonIcon = a.getDrawable(R.styleable.OmniEditText_omniClearButtonIcon)
+            omniInputType = a.getInt(R.styleable.OmniEditText_omniInputType, InputType.TYPE_NUMBER_FLAG_DECIMAL)
             a.recycle()
         }
 
@@ -140,6 +143,14 @@ class OmniEditText @JvmOverloads constructor(
         )
 
         editText.hint = omniHintText
+        editText.inputType = when (omniInputType) {
+            1 -> InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+            2 -> InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+            3 -> InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            4 -> InputType.TYPE_CLASS_NUMBER
+            5 -> InputType.TYPE_CLASS_PHONE
+            else -> InputType.TYPE_CLASS_TEXT
+        }
     }
 
     private fun setError(errorMessage: String?) {
