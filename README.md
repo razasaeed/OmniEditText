@@ -19,3 +19,33 @@
 - [ ] Shows error if input doesn't match regex
 
 # Implementation
+
+Step 1. Add the JitPack repository
+
+In older Android Studio versions, add it in your root build.gradle at the end of repositories:
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+In newer Android Studio versions, add it in your root settings.gradle inside dependencyResolutionManagement block:
+```
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Step 2. Add the dependency in gradle (Module)
+```
+implementation 'com.github.razasaeed:OmniEditText:x.y.z'
+```
+
+# XML
