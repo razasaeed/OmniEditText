@@ -12,6 +12,7 @@
 - [x] Shows error if input exceeds max value
 - [x] Clear button can be enabled
 - [x] Clear button icon can be changed
+- [ ] Input type can be set
 - [ ] Prefix can be set
 - [ ] Suffix can be set
 - [ ] Regex can be set
