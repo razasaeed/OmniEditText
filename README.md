@@ -59,9 +59,12 @@ implementation 'com.github.razasaeed:OmniEditText:x.y.z'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:omniHintText="@string/hint_text"
+        app:omniHintColor="@color/white"
         app:omniTextColor="@color/black"
         app:omniMaxValue="50"
-        app:omniMinValue="10"/>
+        app:omniMinValue="10"
+        app:omniEnableClearButton="true"
+        app:omniClearButtonIcon="@drawable/clear"/>
 ```
 
 # Attributes
