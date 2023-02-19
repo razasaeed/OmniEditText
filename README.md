@@ -79,7 +79,7 @@ implementation 'com.github.razasaeed:OmniEditText:x.y.z'
  | omniMinValue                    | set minimum value of edittext     |  no value by default          |
  | omniEnableClearButton           | enables clear icon if not null    |  disabled by default          |
  | omniClearButtonIcon             | changes clear icon                |  default red icon             |
- 
+
  
 ## Contributing
 
