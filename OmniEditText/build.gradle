@@ -4,9 +4,6 @@ plugins {
     id 'maven-publish'
 }
 
-def artifactId = 'OmniEditText'
-def groupId = 'com.omni.input'
-
 android {
     namespace 'com.omni.input'
     compileSdk 33
@@ -47,20 +44,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-project.afterEvaluate {
-    publishing {
-        publications {
-            library(MavenPublication) {
-                setGroupId groupId
-                setArtifactId artifactId
-                version android.defaultConfig.versionName
+// Maven local publishing script (We only need this for local publish, to test the library)
+afterEvaluate {
+    android.libraryVariants.each { variant ->
+        publishing.publications.create(variant.name, MavenPublication) {
+            from components.findByName(variant.name)
 
-                artifact bundleReleaseAar
-
-                println "publishing: " + groupId
-                println "publishing: " + artifactId
-                println "publishing: " + bundleReleaseAar
-            }
-        }
+            groupId = 'com.razasaeed'
+            artifactId = "OmniEditText"
+            version = '1.0.1'
+        }//'com.razasaeed:OmniEditText:1.0.1'
     }
 }
