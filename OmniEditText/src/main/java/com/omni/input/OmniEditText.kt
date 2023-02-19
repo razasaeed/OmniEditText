@@ -1,6 +1,7 @@
 package com.omni.input
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
@@ -24,6 +25,7 @@ class OmniEditText @JvmOverloads constructor(
     private var omniTextColor = Int.MIN_VALUE
     private var omniHintColor = Int.MIN_VALUE
     private var omniEnableClearButton = false
+    private var omniClearButtonIcon: Drawable? = null
 
     var editText: EditText
     var errorTextView: TextView
@@ -46,6 +48,7 @@ class OmniEditText @JvmOverloads constructor(
             omniHintColor = a.getInt(R.styleable.OmniEditText_omniHintColor, Int.MIN_VALUE)
             omniHintText = a.getString(R.styleable.OmniEditText_omniHintText)
             omniEnableClearButton = a.getBoolean(R.styleable.OmniEditText_omniEnableClearButton, false)
+            omniClearButtonIcon = a.getDrawable(R.styleable.OmniEditText_omniClearButtonIcon)
             a.recycle()
         }
 
@@ -117,6 +120,9 @@ class OmniEditText @JvmOverloads constructor(
     }
 
     private fun setProperties() {
+        if (omniClearButtonIcon != null) {
+            ivClear.setImageDrawable(omniClearButtonIcon)
+        }
         clInput.setBackgroundResource(R.drawable.default_background)
         val padding = resources.getDimensionPixelSize(R.dimen._10px)
         clInput.setPadding(padding, padding, padding, padding)

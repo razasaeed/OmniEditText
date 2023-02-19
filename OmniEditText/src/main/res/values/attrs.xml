@@ -9,6 +9,7 @@
         <attr name="omniHintColor" format="color" />
         <attr name="omniHintText" format="string" />
         <attr name="omniEnableClearButton" format="boolean" />
+        <attr name="omniClearButtonIcon" format="reference" />
     </declare-styleable>
 
 </resources>

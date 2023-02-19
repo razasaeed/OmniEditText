@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:omniHintText="@string/hint_text"
+        app:omniClearButtonIcon="@drawable/clear"
         app:omniEnableClearButton="true"
         app:omniTextColor="@color/black"
         app:omniMaxValue="50"
