@@ -1,10 +1,10 @@
 # OmniEditText
-"Omni" is a prefix that comes from the Latin word "omnis", meaning "all" or "everything". Therefore, "OmniEditText" could be interpreted as an EditText that can handle all types of input and formatting.
-
-[![Build Status](https://api.travis-ci.org/razasaeed/OmniEditText.svg?branch=develop)](https://travis-ci.org/razasaeed/OmniEditText)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://travis-ci.org/razasaeed/OmniEditText)
 [![API](https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=24) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/razasaeed/OmniEditText) [![Image of https://github.com/razasaeed/MyCounter](https://github.com/razasaeed/MyCounter/blob/master/svg/profile/badge.svg)](https://github.com/razasaeed/MyCounter)
 
-# Features
+"Omni" is a prefix that comes from the Latin word "omnis", meaning "all" or "everything". Therefore, "OmniEditText" could be interpreted as an EditText that can handle all types of input and formatting.
+
+## Features
 - [x] Rounded corners EditText
 - [x] Min value can be set
 - [x] Shows error if input is less than min value
@@ -19,7 +19,7 @@
 - [ ] Matches the input with regex
 - [ ] Shows error if input doesn't match regex
 
-# Implementation
+## Implementation
 
 Step 1. Add the JitPack repository
 
@@ -49,7 +49,7 @@ Step 2. Add the dependency in gradle (Module)
 implementation 'com.github.razasaeed:OmniEditText:x.y.z'
 ```
 
-# XML
+## XML
 ```
 <com.omni.input.OmniEditText
         android:id="@+id/omniEditText"
@@ -68,7 +68,7 @@ implementation 'com.github.razasaeed:OmniEditText:x.y.z'
         app:omniClearButtonIcon="@drawable/clear"/>
 ```
 
-# Attributes
+## Attributes
 
  |        Attributes               |            Description            |         Default Value         |
  | ------------------------------- | -------------------------------   | --------------------------    |
@@ -79,3 +79,10 @@ implementation 'com.github.razasaeed:OmniEditText:x.y.z'
  | omniMinValue                    | set minimum value of edittext     |  no value by default          |
  | omniEnableClearButton           | enables clear icon if not null    |  disabled by default          |
  | omniClearButtonIcon             | changes clear icon                |  default red icon             |
+ 
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
