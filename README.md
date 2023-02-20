@@ -12,7 +12,7 @@
 - [x] Shows error if input exceeds max value
 - [x] Clear button can be enabled
 - [x] Clear button icon can be changed
-- [ ] Input type can be set
+- [x] Input type can be set
 - [ ] Prefix can be set
 - [ ] Suffix can be set
 - [ ] Regex can be set
@@ -59,6 +59,7 @@ implementation 'com.github.razasaeed:OmniEditText:x.y.z'
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:omniInputType="amount"
         app:omniHintText="@string/hint_text"
         app:omniHintColor="@color/white"
         app:omniTextColor="@color/black"
@@ -79,6 +80,7 @@ implementation 'com.github.razasaeed:OmniEditText:x.y.z'
  | omniMinValue                    | set minimum value of edittext     |  no value by default          |
  | omniEnableClearButton           | enables clear icon if not null    |  disabled by default          |
  | omniClearButtonIcon             | changes clear icon                |  default red icon             |
+ | omniInputType                   | changes the input type            |  default input type is text   |
 
  
 ## Contributing
